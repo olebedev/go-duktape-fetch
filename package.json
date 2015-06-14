@@ -4,7 +4,8 @@
   "description": "Fetch polyfill for go-duktape",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "embed": "./bin/go-bindata -pkg=\"fetch\" ./dist/bundle.js "
   },
   "author": "",
   "license": "ISC",

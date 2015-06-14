@@ -1,3 +1,5 @@
 src/
+bin/
 pkg/
 node_modules/
+dist/

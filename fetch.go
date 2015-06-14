@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -16,7 +15,7 @@ import (
 var bundle string
 
 func init() {
-	b, err := ioutil.ReadFile("./dist/bundle.js")
+	b, err := Asset("dist/bundle.js")
 	must(err)
 	bundle = string(b)
 }
