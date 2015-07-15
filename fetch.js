@@ -18,7 +18,7 @@ module.exports = Fetch;
  * @param   Object   opts  Fetch options
  * @return  Promise
  */
-function Fetch(url, options) {
+function Fetch(url, o) {
 
   // allow call as function
   if (!(this instanceof Fetch))
@@ -27,13 +27,19 @@ function Fetch(url, options) {
   // allow custom promise
   if (!Fetch.Promise) {
     throw new Error('native promise missing, set Fetch.Promise to your favorite alternative');
-  }
+  };
+
+  if (!url) {
+    throw new Error('url parameter missing');
+  };
+
+  var options = o || {};
 
   // wrap http.request into fetch
   return new Fetch.Promise(function(resolve, reject) {
 
     // normalize headers
-    var headers = new Headers(assign({}, fetch.defaultHeaders || {}, options.headers));
+    var headers = new Headers(options.headers || {});
 
     if (!headers.has('user-agent')) {
       headers.set('user-agent', 'golang-fetch/0.0 (+https://github.com/olebedev/go-duktape-fetch)');
@@ -48,7 +54,7 @@ function Fetch(url, options) {
     options.headers = headers.raw();
 
     // send a request
-    var res = fetch.goFetchSync(url, options);
+    var res = Fetch.goFetchSync(url, options);
     res.url = url;
 
     resolve(new Response(res));

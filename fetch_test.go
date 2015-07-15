@@ -88,7 +88,7 @@ func (s *FetchSuite) TestGoFetchPromise(c *C) {
 	})
 
 	c.Assert(s.ctx.PevalString(`
-		fetch('/404', {})
+		fetch('/404')
 			.then(function(resp){
 				return resp.text();
 			}).then(cbk);
@@ -114,7 +114,7 @@ func (s *FetchSuite) TestGoFetchJson(c *C) {
 	})
 
 	c.Assert(s.ctx.PevalString(`
-		fetch('/', {})
+		fetch('/')
 			.then(function(resp){
 				return resp.json();
 			}).then(cbk);
