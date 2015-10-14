@@ -8,8 +8,8 @@ import (
 	"net/http/httptest"
 	"strings"
 
-	"github.com/olebedev/go-duktape"
 	"github.com/parnurzeal/gorequest"
+	"gopkg.in/olebedev/go-duktape.v1"
 )
 
 var bundle string

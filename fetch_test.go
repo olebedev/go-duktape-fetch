@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/gin-gonic/gin"
-	"github.com/olebedev/go-duktape"
-	"github.com/parnurzeal/gorequest"
 	. "gopkg.in/check.v1"
+
+	"github.com/gin-gonic/gin"
+	"github.com/parnurzeal/gorequest"
+	"gopkg.in/olebedev/go-duktape.v1"
 )
 
 // Hook up gocheck into the "go test" runner.
