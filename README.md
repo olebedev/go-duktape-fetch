@@ -1,4 +1,4 @@
-# go-duktape-fetch [![wercker status](https://app.wercker.com/status/fb4b5e19e7981f6aa9b0426deeaa1406/s/master "wercker status")](https://app.wercker.com/project/bykey/fb4b5e19e7981f6aa9b0426deeaa1406)
+# go-duktape-fetch [![wercker status](https://app.wercker.com/status/fb4b5e19e7981f6aa9b0426deeaa1406/s "wercker status")](https://app.wercker.com/project/bykey/fb4b5e19e7981f6aa9b0426deeaa1406)
 
 Fetch polyfill for [go-duktape](https://github.com/olebedev/go-duktape).
 
