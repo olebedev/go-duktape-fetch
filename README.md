@@ -4,7 +4,7 @@ Fetch polyfill for [go-duktape](https://github.com/olebedev/go-duktape).
 
 ### Usage
 
-First of all install the package `go get gopkg.in/olebedev/go-duktape-fetch.v1`.
+First of all install the package `go get gopkg.in/olebedev/go-duktape-fetch.v2`.
 
 ```go
 package main
@@ -12,15 +12,15 @@ package main
 import (
   "fmt"
 
-  "gopkg.in/olebedev/go-duktape.v1"
-  "gopkg.in/olebedev/go-duktape-fetch.v1"
+  "gopkg.in/olebedev/go-duktape.v2"
+  "gopkg.in/olebedev/go-duktape-fetch.v2"
 )
 
 func main() {
   // create an ecmascript context
   ctx := duktape.New()
   // push fetch into the global scope
-  fetch.Define(ctx, nil)
+  fetch.PushGlobal(ctx, nil)
   ch := make(chan string)
   ctx.PushGlobalGoFunction("cbk", func(c *duktape.Context) int {
     ch <- c.SafeToString(-1)

@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"github.com/parnurzeal/gorequest"
-	"gopkg.in/olebedev/go-duktape.v1"
+	"gopkg.in/olebedev/go-duktape.v2"
 )
 
 var bundle string
@@ -20,8 +20,8 @@ func init() {
 	bundle = string(b)
 }
 
-func Define(c *duktape.Context, server http.Handler) {
-	c.DefineTimers()
+func PushGlobal(c *duktape.Context, server http.Handler) {
+	c.PushTimers()
 	must(c.PevalString(bundle))
 	c.Pop()
 

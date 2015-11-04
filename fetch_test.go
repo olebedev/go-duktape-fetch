@@ -8,7 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/parnurzeal/gorequest"
-	"gopkg.in/olebedev/go-duktape.v1"
+	"gopkg.in/olebedev/go-duktape.v2"
 )
 
 // Hook up gocheck into the "go test" runner.
@@ -26,7 +26,7 @@ func (s *FetchSuite) SetUpSuite(c *C) {
 func (s *FetchSuite) SetUpTest(c *C) {
 	s.goFetch = goFetchSync(nil)
 	s.ctx = duktape.New()
-	Define(s.ctx, nil)
+	PushGlobal(s.ctx, nil)
 }
 
 var _ = Suite(&FetchSuite{})
@@ -67,7 +67,7 @@ func (s *FetchSuite) TestGoFetchSyncExternal(c *C) {
 }
 
 func (s *FetchSuite) TestGoFetchInternal404(c *C) {
-	Define(s.ctx, gin.Default())
+	PushGlobal(s.ctx, gin.Default())
 	c.Assert(s.ctx.PevalString(`
 		fetch.goFetchSync('/404', {});
 	`), IsNil)
@@ -81,7 +81,7 @@ func (s *FetchSuite) TestGoFetchInternal404(c *C) {
 }
 
 func (s *FetchSuite) TestGoFetchPromise(c *C) {
-	Define(s.ctx, gin.Default())
+	PushGlobal(s.ctx, gin.Default())
 	ch := make(chan string)
 	s.ctx.PushGlobalGoFunction("cbk", func(co *duktape.Context) int {
 		ch <- co.SafeToString(-1)
@@ -106,7 +106,7 @@ func (s *FetchSuite) TestGoFetchJson(c *C) {
 		})
 	})
 
-	Define(s.ctx, r)
+	PushGlobal(s.ctx, r)
 
 	ch := make(chan bool)
 	s.ctx.PushGlobalGoFunction("cbk", func(co *duktape.Context) int {
