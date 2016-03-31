@@ -22,7 +22,7 @@ function Fetch(url, o) {
 
   // allow call as function
   if (!(this instanceof Fetch))
-    return new Fetch(url, options);
+    return new Fetch(url, o);
 
   // allow custom promise
   if (!Fetch.Promise) {
