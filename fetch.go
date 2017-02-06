@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/parnurzeal/gorequest"
-	"gopkg.in/olebedev/go-duktape.v2"
+	"gopkg.in/olebedev/go-duktape.v3"
 )
 
 var bundle string

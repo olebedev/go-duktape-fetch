@@ -8,7 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/parnurzeal/gorequest"
-	"gopkg.in/olebedev/go-duktape.v2"
+	"gopkg.in/olebedev/go-duktape.v3"
 )
 
 // Hook up gocheck into the "go test" runner.

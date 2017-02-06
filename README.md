@@ -4,7 +4,7 @@ Fetch polyfill for [go-duktape](https://github.com/olebedev/go-duktape).
 
 ### Usage
 
-First of all install the package `go get gopkg.in/olebedev/go-duktape-fetch.v2`.
+First of all install the package `go get gopkg.in/olebedev/go-duktape-fetch.v3`.
 
 ```go
 package main
